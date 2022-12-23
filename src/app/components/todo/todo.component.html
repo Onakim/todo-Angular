@@ -1,19 +1,20 @@
 <section>
   <div class="container">
     <div *ngIf="error != ''">{{ error }}</div>
-    <p *ngIf="items.length === 0">Ще не має данних</p>
+    <p *ngIf="items.length === 0">У вас ще немає завданнь</p>
     <div class="newTask">
       <mat-form-field class="example-full-width">
         <input
           matInput
+          color="primary"
           type="text"
           [(ngModel)]="newTask"
-          placeholder="Введіть дані"
+          placeholder="Напишіть завдання"
         />
       </mat-form-field>
       
-      <button mat-raised-button color="accent" (click)="addFunc()">
-        Додати задачу
+      <button mat-stroked-button color="primary" class="addButton" (click)="addFunc()">
+        Додати завдання
       </button>
     </div>
     <div
@@ -54,29 +55,29 @@
           </mat-form-field>
         </div>
         <div class="buttons">
-          <button mat-raised-button color="warn" (click)="deleteFunc(item.id)">
-            Видалити задачу
+          <button mat-stroked-button color="warn" (click)="deleteFunc(item.id)">
+            Видалити завдання
           </button>
           <button mat-raised-button color="primary" (click)="editFunc(item.id)">
-            Редагувати
+            Редагувати завдання
           </button>
           <button
             mat-raised-button
-            color="primary"
+            color="accent"
             (click)="saveFunc(item.checked)"
           >
-            Зберігти
+            Зберегти завдання
           </button>
         </div>
       </div>
     </div>
 
     <mat-paginator
-      *ngIf="items.length > 5"
+      *ngIf="items.length > 10"
       (page)="handlePageEvent($event)"
       [length]="items.length"
       [pageSize]="pageSize"
-      [pageSizeOptions]="[5, 10, 25, 100]"
+      [pageSizeOptions]="[10, 25, 50]"
       aria-label="Select page"
     >
     </mat-paginator>

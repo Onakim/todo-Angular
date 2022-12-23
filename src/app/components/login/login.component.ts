@@ -15,7 +15,7 @@ export class LoginComponent {
 
   async loginFunc() {
     if (this.login === '' || this.pass === '') {
-      this.error = 'Пусте значення';
+      this.error = 'Пусте поле';
       return;
     }
     const data = await this.service.login(this.login, this.pass);

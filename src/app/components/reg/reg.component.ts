@@ -15,7 +15,7 @@ export class RegComponent {
 
   async regFunc(): Promise<void> {
     if (this.login === '' || this.pass === '') {
-      this.error = 'Пусте значення';
+      this.error = 'Пусте поле';
       return;
     }
     const data = await this.service.reg(this.login, this.pass);

@@ -15,7 +15,7 @@ export class HeaderComponent {
   @Input() checkLogout = localStorage.getItem('token') ? false : true;
   @Output() checkLogoutChange = new EventEmitter<boolean>();
   @Output() themeChange = new EventEmitter<string>();
-  @Input() theme = localStorage.getItem('theme') || 'Темна';
+  @Input() theme = localStorage.getItem('theme') || 'Dark';
   error = '';
   @Input() isAuth = false;
 
@@ -33,14 +33,14 @@ export class HeaderComponent {
       localStorage.removeItem('activeID');
       return;
     }
-    this.error = data.error || 'Помилка невідома';
+    this.error = data.error || 'Невідома помилка';
   }
 
   changeTheme(): void {
-    if (this.theme === 'Темна') {
-      this.theme = 'Світла';
+    if (this.theme === 'Dark') {
+      this.theme = 'Light';
     } else {
-      this.theme = 'Темна';
+      this.theme = 'Dark';
     }
 
     localStorage.setItem('theme', this.theme);

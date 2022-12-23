@@ -16,7 +16,7 @@ export class TodoComponent {
   newTask = '';
   editId = '';
   editTask = '';
-  pageSize = 5;
+  pageSize = 10;
   pageIndex = 0;
   pageEvent: PageEvent = new PageEvent();
 

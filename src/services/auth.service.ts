@@ -57,7 +57,7 @@ export class AuthService {
       );
       const res = await lastValueFrom(source$);
       if (res.ok && res.alreadyExist) {
-        return { ...res, error: 'такий користувач вже існує' };
+        return { ...res, error: 'Такий користувач вже існує' };
       }
       const loginData = await this.login(login, pass);
       if (loginData.ok) {
@@ -86,7 +86,7 @@ export class AuthService {
       }
       return {
         ok: false,
-        error: `Не розлогінились`,
+        error: `Не вдалося вийти з акаунту`,
       };
     } catch (e: any) {
       return{

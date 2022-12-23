@@ -1,6 +1,6 @@
 <header [attr.theme]="theme">
   <div class="container">
-    <p>header works!</p>
+    <p>Шапка сайту!</p>
     <p *ngIf="error !== ''">{{ error }}</p>
     <div class="rightBlock">
       <mat-slide-toggle (change)="changeTheme()">{{ theme }}</mat-slide-toggle>
@@ -10,7 +10,7 @@
         color="primary"
         (click)="logoutFunc()"
       >
-        Вийти
+        Вихід
       </button>
     </div>
   </div>

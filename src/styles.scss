@@ -52,7 +52,7 @@ header, footer{
   display: flex;
   align-items: center;
 }
-header[theme="Темна"], footer[theme="Темна"]{
+header[theme="Dark"], header[theme="Dark"]label#mat-mdc-slide-toggle-1-label, footer[theme="Dark"]{
   background-color: black;
   color: rgb(205, 247, 233);
 }
