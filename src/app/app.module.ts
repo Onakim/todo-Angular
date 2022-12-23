@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,11 +15,13 @@ import { RegComponent } from './components/reg/reg.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { LoadComponent } from './components/load/load.component';
+import { LoadingInterceptor } from './components/load/loading.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +31,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     AuthComponent,
     LoginComponent,
     RegComponent,
+    LoadComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,8 +47,14 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     DragDropModule,
     MatPaginatorModule,
     MatSlideToggleModule,
+    MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true
+    }
+  ],
   bootstrap: [AppComponent],
+  exports: [LoadComponent]
 })
-export class AppModule {}
+export class AppModule { }

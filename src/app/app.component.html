@@ -1,4 +1,5 @@
 <app-header [(checkLogout)]="isLogout" [(theme)]="theme" [isAuth]="isAuth"></app-header>
+<app-load></app-load>
 <app-todo *ngIf="isAuth"></app-todo>
 <app-auth *ngIf="!isAuth"></app-auth>
 <app-footer  [theme]="theme"></app-footer>

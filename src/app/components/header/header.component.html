@@ -6,7 +6,7 @@
       <mat-slide-toggle (change)="changeTheme()">{{ theme }}</mat-slide-toggle>
       <button
         *ngIf="isAuth"
-        mat-raised-button
+        mat-stroked-button
         color="primary"
         (click)="logoutFunc()"
       >

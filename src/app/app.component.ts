@@ -1,6 +1,7 @@
 import {
   Component,
 } from '@angular/core';
+import { LoadService } from './components/load/load.service';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,8 @@ export class AppComponent {
   isLogout: boolean = false;
   isAuth = !!localStorage.getItem('token');
   theme = 'Dark';
+  public loader!: LoadService;
+  // loading: boolean = false;
   ngOnInit() {
     if (!localStorage.getItem('theme')) {
       this.theme = 'Dark';
